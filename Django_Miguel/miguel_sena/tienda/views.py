@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
+from django.db import IntegrityError
 
 # Create your views here.
 
@@ -59,3 +60,15 @@ def productos(request):
     "data": q
     }
     return render (request, "productos/listar_productos.html", contexto)
+
+def eliminar_producto (request , id_producto):
+    try:
+        q = Producto.objects.get(pk = id_producto)
+        q.delete()
+        return HttpResponse("Producto eliminado Correctamente")
+    except Producto.DoesNotExist:
+        return HttpResponse("Error: El producto no existe")
+    except IntegrityError:
+        return HttpResponse ("no se puede el producto pq esta relacionado en facturas")
+    except Exception as e:
+        return HttpResponse (f"Error: {e}")
