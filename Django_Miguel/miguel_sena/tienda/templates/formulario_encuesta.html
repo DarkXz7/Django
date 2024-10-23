@@ -1,0 +1,20 @@
+<form action="{% url 'procesar_encuesta' %}" method="Post">
+    {% csrf_token %}
+    <label>Nombre</label>
+    <input type="text" name="nombre" required="">
+    <label>Tiene Hambre?:</label>
+
+    <br>
+
+    <label for="si">SI</label>
+    <input type="radio" name="hambre" value="si" id="si" required="">
+
+    <br>
+
+    <label for="no">NO</label>
+    <input type="radio" name="hambre"  value="no "id="no" required="">
+    <br>
+
+    <button type="submit">Enviar</button>
+    
+</form>

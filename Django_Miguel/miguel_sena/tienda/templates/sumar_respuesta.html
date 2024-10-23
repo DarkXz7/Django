@@ -1,0 +1,15 @@
+
+<p>
+    la suma de {{ num1 }}+{{ num2 }} es:
+    <strong class="respuesta">{{ respuesta }}</strong>
+    
+</p>
+
+<style>
+    .respuesta{
+        color: {% if respuesta < 20 %} red 
+        {% elif respuesta <= 50 %} blue 
+        {% else %} green 
+        {% endif %}; 
+        }
+</style>

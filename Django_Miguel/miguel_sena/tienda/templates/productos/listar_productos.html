@@ -1,0 +1,16 @@
+
+<table border="1" width=100%>
+    <thead>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </thead>
+    <tbody>
+        {% for r in data %}
+        <tr>
+            <td>{{ r.nombre }}</td>
+            <td>{{ r.precio }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
